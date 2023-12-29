@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Hello World Extension V3",
+  "version": "1.0",
+  "description": "A simple 'Hello World' Chrome extension using Manifest V3.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": []
+}
