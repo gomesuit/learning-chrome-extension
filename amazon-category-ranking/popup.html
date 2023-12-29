@@ -2,9 +2,49 @@
 <html>
 <head>
   <title>Category Ranking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      color: #333;
+      background-color: #f2f2f2;
+      max-width: 400px; /* 適切な幅に調整 */
+    }
+
+    #result {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    a {
+      color: #1a0dab;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .ranking {
+      margin-top: 5px;
+    }
+
+    .ranking-title {
+      font-weight: bold;
+    }
+
+    .category-link {
+      padding-left: 10px;
+      display: block; /* リンクをブロック要素として表示 */
+    }
+  </style>
 </head>
 <body>
-  <div id="result"></div>
+  <div id="result">Category ranking not found.</div>
   <script src="popup.js"></script>
 </body>
 </html>
