@@ -5,18 +5,18 @@ document.getElementById('getRanking').addEventListener('click', function() {
       function: getCategory
     }, (injectionResults) => {
       for (const frameResult of injectionResults)
-        if (frameResult.result) {
-          const category = frameResult.result;
-          document.getElementById('result').textContent = 'Category: ' + category;
-          // ここでカテゴリランキングページへのリンクを生成する
+        if (frameResult.result && frameResult.result.category) {
+          const category = frameResult.result.category;
+          document.getElementById('result').innerHTML = 'Category Ranking: <br>' + category;
+          // HTMLを設定するためにinnerHTMLを使用します。
         } else {
-          document.getElementById('result').textContent = 'Category not found.';
+          document.getElementById('result').textContent = 'Category ranking not found.';
         }
     });
   });
 });
 
 function getCategory() {
-  const categoryElement = document.querySelector(/* セレクタを指定 */);
-  return categoryElement ? categoryElement.textContent : null;
+  const categoryElement = document.querySelector('#detailBulletsWrapper_feature_div > ul:nth-child(4) > li > span');
+  return { category: categoryElement ? categoryElement.innerText : null };
 }
