@@ -2,11 +2,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.action === "getCategory") {
     const categoryElement = document.querySelector('#detailBulletsWrapper_feature_div > ul:nth-child(4) > li > span');
     if (categoryElement) {
-      const category = categoryElement.innerText;
-      sendResponse({ category: category });
+      let categoryHtml = categoryElement.innerHTML;
+      // 相対パスのリンクを絶対パスに変換
+      categoryHtml = categoryHtml.replace(/href="\//g, 'href="https://www.amazon.co.jp/');
+      sendResponse({ categoryHtml: categoryHtml });
     } else {
-      sendResponse({ category: null });
+      sendResponse({ categoryHtml: null });
     }
   }
-  return true; // この行が非同期レスポンスを可能にします。
+  return true; // 非同期レスポンスのために true を返す
 });
