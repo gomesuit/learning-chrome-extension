@@ -1,4 +1,4 @@
-document.getElementById('getRanking').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.scripting.executeScript({
       target: { tabId: tabs[0].id },
@@ -8,7 +8,6 @@ document.getElementById('getRanking').addEventListener('click', function() {
         if (frameResult.result && frameResult.result.category) {
           const category = frameResult.result.category;
           document.getElementById('result').innerHTML = 'Category Ranking: <br>' + category;
-          // HTMLを設定するためにinnerHTMLを使用します。
         } else {
           document.getElementById('result').textContent = 'Category ranking not found.';
         }
