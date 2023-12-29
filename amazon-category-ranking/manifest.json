@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon.co.jp Category Ranking Accessor",
+  "version": "1.0",
+  "description": "Access the category ranking of products on Amazon.co.jp easily.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.co.jp/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "*://*.amazon.co.jp/*"
+  ]
+}
